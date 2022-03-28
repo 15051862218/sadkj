@@ -1,0 +1,20 @@
+
+spring:
+  application:
+    name:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://139.224.233.37:3306/uni_article?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 123456
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true  # mybatis开启驼峰式命名
+  mapper-locations:  classpath:mapper/*.xml
+  type-aliases-package:
+    com.syk.boot.mapper
+
+
+
