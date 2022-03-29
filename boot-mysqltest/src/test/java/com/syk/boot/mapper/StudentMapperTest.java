@@ -1,5 +1,8 @@
 package com.syk.boot.mapper;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -83,5 +86,12 @@ class StudentMapperTest {
         List<Student> students = studentMapper.findStudentBy(student);
         log.info(String.valueOf(students.size()));
         students.forEach(student1 -> log.info(String.valueOf(student1)));
+    }
+    @Test
+    void  testPage(){
+        PageHelper.startPage(1,6);
+        List<Student> students = studentMapper.findStudentBy(new Student());
+        PageInfo<Student > page = PageInfo.of(students);
+        log.info(String.valueOf(page));
     }
 }
